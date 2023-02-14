@@ -4,7 +4,7 @@ Scopul is a python package to extract data from midi files. It can extract thing
 features such as converting a midi into a pdf or MusicXML file. For information about how to use it, check the table of contents below:
 
 
-- <a href="scopul.html">Scopul</a>
+- <a href="scopul.md">Scopul</a>
 
 
 - <a href="tempo.md">Tempo</a>
