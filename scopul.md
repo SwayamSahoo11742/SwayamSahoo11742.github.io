@@ -3,165 +3,202 @@ The Scopul class is a class for manipulating and generating music files.
 
 
 ## Class Properties
-- Tempo (tempo)
-  - The tempo property returns the Tempo object.
+- `tempo`
+  - The tempo property returns a <a href="tempo.md">Tempo</a> object.
   - Example:
     ```python
-    scopul_object = Scopul(audio)
+    scopul_object = Scopul("test.mid")
     tempo_object = scopul_object.tempo
+    print(tempo_object)
+
+    # Sample output
+    >>> <Tempo.Tempo object at 0x000001B737BBFC10>
     ```
-- Time Signature (time_sig)
-  - The time_sig property returns the TimeSignature object.
+<br>
+
+- `time_sig`
+  - The time_sig property returns a <a href="timesig.md">TimeSignature</a> object.
   - Example:
     ```python
-    scopul_object = Scopul(audio)
+    scopul_object = Scopul("test.mid")
     time_sig_object = scopul_object.time_sig
+    print(time_sig_object)
+
+    # Sample output
+    >>> <TimeSignature.TimeSignature object at 0x0000019AB0395610>
     ```
-- Midi File (midi)
-  - The midi property returns the midi file.
+<br>
+
+- `parts`
+  - The parts property returns a list of <a href="part.md">Part</a> objects.
   - Example:
     ```python
-    scopul_object = Scopul(audio)
-    midi_file = scopul_object.midi
-    ```
-  - The midi property can also be set, which will reconstruct the object to change accordingly to a new midi.
-  - Example:
-    ```python
-    scopul_object = Scopul(audio)
-    scopul_object.midi = new_audio
-    ```
-- Parts
-  - The parts property returns a list of Part objects.
-  - Example:
-    ```python
-    scopul_object = Scopul(audio)
+    scopul_object = Scopul("test.mid")
     part_list = scopul_object.parts
+    print(part_list)
+
+    # Sample output
+    >>> [<Sequence.Part object at 0x000001E94FFCB9D0>, <Sequence.Part object at 0x000001E9501EBF50>]
     ```
 
+<br>
 
-## Class Methods
-- Get Audio Length
+- `audio`
+  - The audio property returns the audio midi file.
+  - Example:
+    ```python
+    scopul_object = Scopul("test.mid")
+    midi_file = scopul_object.audio
+    print(midi_file)
+
+    # Sample Output
+    >>> "test.mid"
+    ```
+  - The audio property can also be set, which will reconstruct the object to change accordingly to a new midi.
+  - Example:
+    ```python
+    scopul_object = Scopul("test.mid")
+    scopul_object.audio = "test2.mid"
+    print(scopul_object.audio)
+
+    >>> "test2.mid"
+    ```
+  
+  <br>
+
+- `midi`
+  - the midi property returns a [Music21 Stream Object](https://web.mit.edu/music21/doc/usersGuide/usersGuide_06_stream2.html)
+
+  - Example
+    ```python
+    scopul_object = Scopul("test.mid")
+    print(scopul_object.midi)
+
+    # Sample output
+    >>> <music21.stream.Score 0x215845a3010>
+    ```
+
+<br>
+
+## Methods
+- `get_audio_lenght()`
   - The `get_audio_lenght()` method returns the length of the audio in seconds.
   - Example:
     ```python
-    scopul_object = Scopul(audio)
+    scopul_object = Scopul("test.mid")
     audio_length = scopul_object.get_audio_lenght()
+    print(audio_lenght)
+
+    # Sample output
+    >>> 77.62499999999935
     ```
-- Generate PDF
+  
+  <br>
+
+- `generate_pdf(output, fp="", overwrite=False )`
   - The `generate_pdf()` method generates a pdf of the midi. It creates a pdf by turning it into musicxml then to pdf.
   - Args:
-    - output: a str that represents the name of the file
-    - fp: a str that represents the file path as to where to save the pdf. Default is '', which will save to the current working directory
-    - overwrite: a boolean, indicates whether to overwrite files or not
+    - `output`: a str that represents the name of the file
+    - `fp`:` a str that represents the file path as to where to save the pdf. Default is '', which will save to the current working directory
+    - `overwrite`: a boolean, indicates whether to overwrite files or not
   - Returns:
-    - None, just generates a pdf in the path specified with the name specified
+    - `None`, just generates a pdf in the path specified with the name specified
   - Raises:
-    - FileExistsError: if overwrite is False and there is a file at the same path
+    - **FileExistsError**: if overwrite is False and there is a file at the same path
+    - **InvalidFileFormatError**: if given a non .pdf file for output
   - Example:
     ```python
-    scopul_object = Scopul(audio)
-    scopul_object.generate_pdf("example.pdf")
+    scopul_object = Scopul("test.mid")
+    scopul_object.generate_pdf("example.pdf", fp="path/to/pdf/", overwrite=True)
     ```
-- Method generate_musicxml
+  
+  <br>
+- `generate_musicxml(output, fp="", overwrite=False)`
   - The `generate_musicxml` method generates a musicxml of the midi file.
   - Parameters
-    - output: a string that represents the name of the file
-    - fp: a string that represents the file path as to where to save the musicxml. Default is '', which will save to the current working directory
-    - overwrite: a boolean, indicates whether to overwrite files or not
+    - `output`: a string that represents the name of the file
+    - `fp`: a string that represents the file path as to where to save the musicxml. Default is '', which will save to the current working directory
+    - `overwrite`: a boolean, indicates whether to overwrite files or not
   - Returns
-    - This method returns None, it just generates a musicxml in the path specified with the name specified.
-  - Raises
+    - This method returns `None`, it just generates a musicxml in the path specified with the name specified.
+  - Raises:
+    - **FileExistsError** if overwrite is False and there is a file at the same path
+    - **InvalidFileFormatError**: if given a non .xml file for output
+  - Example:
+    ```python
+    scopul_object = Scopul("test.mid")
+    scopul_object.generate_musicxml("example.pdf", fp="path/to/xml/", overwrite=True)
+    ```
    
+<br><br>
+
+## Class Methods 
+
+- `Scopul.midi_tempo2bpm(tempo : int | float)`
+  Converts a midi tempo value to bpm
 
 
-## Class Method: `midi_tempo2bpm`
-Converts a midi tempo value to bpm
+  - Parameters
+    - `tempo`: an int, the midi tempo value to be converted
 
 
-### Parameters
-- `tempo`: an int, the midi tempo value to be converted
+  - Returns
+    - A float or a list of floats, depending on the input
+      - If `tempo` is an int, returns a float
+      - If `tempo` is a list, returns a list of floats
 
 
-### Returns
-- A float or a list of floats, depending on the input
-  - If `tempo` is an int, returns a float
-  - If `tempo` is a list, returns a list of floats
+  - Example
+    ```python
+    # int input
+    print(Scopul.midi_tempo2bpm(10000))
+
+    # Sample output
+    >>> 100.0
 
 
-### Example
-```python
-# int input
->>> midi_tempo2bpm(65)
-100.0
+    # list input
+    print(Scopul.midi_tempo2bpm([10000, 24566, 3444]))
+
+    # Sample output
+    >>> [6000.0, 2442.4000651306683, 17421.602787456446]
+    ```
+
+<br>
+
+- `Scopul.bpm2midi_tempo(tempo : int | list)`
 
 
-# list input
->>> midi_tempo2bpm([125, 50, 65])
-[200.0, 80.0, 100.0]
+  Converts a bpm value to midi tempo
 
 
+  - Parameters
 
 
-## midi_tempo2bpm
+    - `tempo` (int or list): An int value representing the bpm to be converted to midi tempo.
 
 
-Converts a midi tempo value to bpm.
+  - Returns
 
 
-### Args
-- `tempo`: An int or a list of ints.
+    - `float` or `list`: Depending on the input, returns either a float value representing the converted midi tempo or a list of float values representing the midi tempo values for each bpm value in the list.
 
 
-### Returns
-A float or a list of floats, depending on the input.
+  - Example
+    ```python
+    # int input
+    print(Scopul.bpm2midi_tempo(108))
+
+    # Sample output
+    >>> 555556
+
+    # Sample output
+    >>> 100.0
 
 
-#### Examples
+    # list input
+    print(Scopul.bpm2midi_tempo([108, 60, 200]))
 
-
-- int input: `midi_tempo2bpm(65)` returns `x` where x is the equivalent bpm value
-- list input: `midi_tempo2bpm([125,50,65])` returns `[x1, x2, x3]` where `x1`, `x2`, and `x3` are the equivalent bpm values for each midi tempo value in the list.
-```
-
-
-# bpm2midi_tempo
-
-
-Converts a bpm value to midi tempo
-
-
-## Parameters
-
-
-- tempo (int or list): An int value representing the bpm to be converted to midi tempo.
-
-
-## Returns
-
-
-- float or list: Depending on the input, returns either a float value representing the converted midi tempo or a list of float values representing the midi tempo values for each bpm value in the list.
-
-
-## Example
-```
-Input (int input):
-10000
-Output (int output):
-500000
-```
-
-
-```
-Input (list input):
-[10000, 896534, 23334]
-Output (list output):
-[500000, 4504480, 115197]
-```
-
-
-
-
-## Note
-
-
-This method only accepts an int or list input. If any other type of object is passed as t
+    # Sample output
+    >>> [555556, 1000000, 300000]
+    ```
