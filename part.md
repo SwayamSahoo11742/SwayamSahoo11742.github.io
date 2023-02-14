@@ -1,9 +1,7 @@
-<script src="https://rawcdn.githack.com/oscarmorrison/md-page/master/md-page.js"></script><noscript>
-
 # Part
 
 ## Overview
-Part is a class to fetch seperate parts of a <a href="scopul.html">Scopul</a> object (ie. flute part, piano part). It provides 3 properties: `part`, `name`, `sequence` and 8 methods: `get_notes()`, `get_note_count()`, `get_rests()`, `get_rest_count()`, `get_chords()`, `get_chord_count()`,`get_measure()`, `get_highest_note()`
+Part is a class to fetch seperate parts of a [Scopul](scopul.md) object (ie. flute part, piano part). It provides 3 properties: `part`, `name`, `sequence` and 8 methods: `get_notes()`, `get_note_count()`, `get_rests()`, `get_rest_count()`, `get_chords()`, `get_chord_count()`,`get_measure()`, `get_highest_note()`
 
 Here's an example of how to get a Part object from a Scopul instance:
 
@@ -66,7 +64,7 @@ print(flue_part)
 - `sequence`
     - Retrieves the sequence of rests, notes and chords played in the part
     - Returns
-        - A list consisting of <a href="note.html">Note</a>, <a href="rest.html">Rest</a>, and <a href="chord.html">Chord</a> objects 
+        - A list consisting of [Note](note.md), [Rest](rest.md), and [Chord](chord.md) objects 
 
     - Example
         ```python

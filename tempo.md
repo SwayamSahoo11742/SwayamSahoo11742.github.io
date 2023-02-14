@@ -1,9 +1,7 @@
-<script src="https://rawcdn.githack.com/oscarmorrison/md-page/master/md-page.js"></script><noscript>
-
 # Tempo
 
 ## Overview
-Tempo is a class to fetch the tempo and tempo changes in a <a href="scopul.html">Scopul</a> object. It provides two properties bpm_list and midi_tempo_list which return the tempo information in bpm (beats per minute) and midi tempo format respectively.
+Tempo is a class to fetch the tempo and tempo changes in a [Scopul]("scopul.md") object. It provides two properties bpm_list and midi_tempo_list which return the tempo information in bpm (beats per minute) and midi tempo format respectively.
 
 
 Here is an example of how to acess the Tempo class for a Scopul object:

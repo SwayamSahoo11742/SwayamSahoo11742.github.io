@@ -1,24 +1,21 @@
-<script src="https://rawcdn.githack.com/oscarmorrison/md-page/master/md-page.js"></script><noscript>
-
 # What is Scopul?
 
 Scopul is a python package to extract data from midi files. It can extract things such as note duration, velocity, tempo and time signature. It also has additional 
 features such as converting a midi into a pdf or MusicXML file. For information about how to use it, check the table of contents below:
 
 
-- <a href="scopul.html">Scopul</a>
+- [Scopul](scopul.md)
 
 
-- <a href="tempo.html">Tempo</a>
+- [Tempo](tempo.md)
+
+- [TimeSignature](timesig.md)
 
 
-- <a href="timesig.html">TimeSignature</a>
-
-
-- <a href="part.html">Part</a>
-  - <a href="note.html">Note</a>
-  - <a href="chord.html">Chord</a>
-  - <a href="rest.html">Rest</a>
+- [Part](part.md)
+  - [Note](note.md)
+  - [Chord](chord.md)
+  - [Rest](rest.md)
 
 <br>
 <br>

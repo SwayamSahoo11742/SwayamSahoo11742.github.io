@@ -1,10 +1,9 @@
 
-<script src="https://rawcdn.githack.com/oscarmorrison/md-page/master/md-page.js"></script><noscript>
 # TimeSignature
 
 ## Overview
 
-TimeSignature is a class to to fetch time signature info from a <a href="scopul.html">Scopul</a> object. It has 4 properties: `ratio`, `count`, `denominator`, `numerator`, and one method: `list()`.
+TimeSignature is a class to to fetch time signature info from a [Scopul](scopul.md) object. It has 4 properties: `ratio`, `count`, `denominator`, `numerator`, and one method: `list()`.
 
 Here's an example of how to fetch a TimeSignature object of a Scopul object:
 ```python

@@ -1,5 +1,3 @@
-<script src="https://rawcdn.githack.com/oscarmorrison/md-page/master/md-page.js"></script><noscript>
-
 # Scopul Class
 
 ## Overview
@@ -8,7 +6,7 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 
 ## Class Properties
 - `tempo`
-  - The tempo property returns a <a href="tempo.html">Tempo</a> object.
+  - The tempo property returns a [Tempo](tempo.md) object.
   - Example:
     ```python
     scopul_object = Scopul("test.mid")
@@ -21,7 +19,7 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 <br>
 
 - `time_sig`
-  - The time_sig property returns a <a href="timesig.html">TimeSignature</a> object.
+  - The time_sig property returns a [TimeSignature](timesig.md) object.
   - Example:
     ```python
     scopul_object = Scopul("test.mid")
@@ -34,7 +32,7 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 <br>
 
 - `parts`
-  - The parts property returns a list of <a href="part.html">Part</a> objects.
+  - The parts property returns a list of [Part](part.md) objects.
   - Example:
     ```python
     scopul_object = Scopul("test.mid")
