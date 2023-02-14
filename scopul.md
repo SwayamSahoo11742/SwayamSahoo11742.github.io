@@ -1,5 +1,7 @@
 # Scopul Class
-The Scopul class is a class for manipulating and generating music files.
+
+## Overview
+The Scopul class is a class for creating, analyzing, and generating MIDI files. It can read MIDI files, extract information such as tempo, time signature, and parts, and generate pdf and musicxml files. The class provides properties and methods to perform these tasks, making it a versatile tool for working with music files.
 
 
 ## Class Properties
