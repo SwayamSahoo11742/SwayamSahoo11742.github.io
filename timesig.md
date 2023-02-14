@@ -38,14 +38,14 @@ print(time_signature)
         - An int, EX: `4`
     
     - Example
-    ```python
-    scop = Scopul("test.mid")
-    time_signature = scop.time_sig
-    print(time_signature.denominator)
+        ```python
+        scop = Scopul("test.mid")
+        time_signature = scop.time_sig
+        print(time_signature.denominator)
 
-    # Sample output
-    >>> 4
-    ```
+        # Sample output
+        >>> 4
+        ```
 <br>
 
 - `numerator`
@@ -54,14 +54,14 @@ print(time_signature)
         - An int, EX: `4`
     
     - Example
-    ```python
-    scop = Scopul("test.mid")
-    time_signature = scop.time_sig
-    print(time_signature.numerator)
+        ```python
+        scop = Scopul("test.mid")
+        time_signature = scop.time_sig
+        print(time_signature.numerator)
 
-    # Sample output
-    >>> 2    
-    ```
+        # Sample output
+        >>> 2    
+        ```
 <br>
 
 - `count`
