@@ -7,6 +7,8 @@ The chord class can be accesed within a [Part](part.md) object of a [Scopul](sco
 Here's an example of how you could get a chord object:
 
 ```python
+from Scopul import Scopul
+
 scop = Scopul("test.mid")
 
 # Get parts
@@ -31,6 +33,8 @@ chord = random_part[0] # Getting the first object in the sequence, which is a ch
         - an int, representing the measure number. For example: `5`
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting a chord by going into a part's sequence, if this is confusing, go to Part class section
@@ -49,6 +53,8 @@ chord = random_part[0] # Getting the first object in the sequence, which is a ch
         - A list of [Note](note.md) elements. For example: `[<Sequence.Note object at 0x000002E0651DCD10>]`
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting a chord by going into a part's sequence, if this is confusing, go to Part class section
@@ -67,6 +73,8 @@ chord = random_part[0] # Getting the first object in the sequence, which is a ch
         - A string that indicates the chord's lenght. For example: `quarter`
     - Example
         ```python
+        from Scopul import Scopul
+        
         scop = Scopul("test.mid")
 
         # Getting a chord by going into a part's sequence, if this is confusing, go to Part class section

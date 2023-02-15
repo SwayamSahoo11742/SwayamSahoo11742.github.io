@@ -6,6 +6,8 @@ Part is a class to fetch seperate parts of a [Scopul](scopul.md) object (ie. flu
 Here's an example of how to get a Part object from a Scopul instance:
 
 ```python
+from Scopul import Scopul
+
 scop = Scopul("test.mid")
 
 # Get all the parts
@@ -29,6 +31,8 @@ print(flue_part)
     
     - Example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -44,6 +48,8 @@ print(flue_part)
 
     - Can be used to find a certain part in a midi by iterating through it. For example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -68,6 +74,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -87,6 +95,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -117,6 +127,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -154,6 +166,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -184,6 +198,8 @@ print(flue_part)
         - **InvalidMusicalElementError**: if the list consists of non Scopul Musical Element types (Rests, Notes, Chords)
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -205,6 +221,8 @@ print(flue_part)
     
     - Works well with `get_measure()` method. As an example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -236,6 +254,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -257,6 +277,8 @@ print(flue_part)
 
     - Much like `get_notes`, it works well with `get_measure` method. For example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -287,6 +309,8 @@ print(flue_part)
         - **InvalidMusicalElementError**: if the list consists of non Scopul Musical Element types (Rests, Notes, Chords)
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -308,6 +332,8 @@ print(flue_part)
     
     - Works well with `get_measure()` method. As an example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -339,6 +365,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -360,6 +388,8 @@ print(flue_part)
 
     - Much like `get_rests`, it works well with `get_measure` method. For example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -391,6 +421,8 @@ print(flue_part)
         - **InvalidMusicalElementError**: if the list consists of non Scopul Musical Element types (Rests, Notes, Chords)
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -412,6 +444,8 @@ print(flue_part)
     
     - Works well with `get_measure()` method. As an example:
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -443,6 +477,8 @@ print(flue_part)
 
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting parts
@@ -464,6 +500,8 @@ print(flue_part)
 
     - Much like `get_chords`, it works well with `get_measure` method. For example:
         ```python
+        from Scopul import Scopul
+        
         scop = Scopul("test.mid")
 
         # Getting parts

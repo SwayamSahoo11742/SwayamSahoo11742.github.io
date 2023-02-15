@@ -7,6 +7,8 @@ TimeSignature is a class to to fetch time signature info from a [Scopul](scopul.
 
 Here's an example of how to fetch a TimeSignature object of a Scopul object:
 ```python
+from Scopul import Scopul
+
 scop = Scopul("test.mid")
 time_signature = scop.time_sig
 print(time_signature)
@@ -23,6 +25,8 @@ print(time_signature)
     
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
         time_signature = scop.time_sig
         print(time_signature.ratio)
@@ -39,6 +43,8 @@ print(time_signature)
     
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
         time_signature = scop.time_sig
         print(time_signature.denominator)
@@ -55,6 +61,8 @@ print(time_signature)
     
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
         time_signature = scop.time_sig
         print(time_signature.numerator)
@@ -70,6 +78,8 @@ print(time_signature)
         - An int, EX: `12`
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
         time_signature = scop.time_sig
         print(time_signature.count)
@@ -90,6 +100,8 @@ print(time_signature)
 
     - Example:
         ```python
+        from Scopul import Scopul
+        
         scop = Scopul("test.mid")
         time_signature = scop.time_sig
         print(time_signature.list())

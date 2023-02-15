@@ -7,6 +7,8 @@ The Rest class can be accesed within a [Part](part.md) object of a [Scopul](scop
 Here's an example of how you could get a Rest object:
 
 ```python
+from Scopul import Scopul
+
 scop = Scopul("test.mid")
 
 # Get parts
@@ -31,6 +33,8 @@ rest = random_part[1] # Getting the second object in the sequence, which is a re
         - an int, representing the measure number. For example: `5`
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting a rest by going into a part's sequence, if this is confusing, go to Part class section
@@ -51,6 +55,8 @@ rest = random_part[1] # Getting the second object in the sequence, which is a re
         - A string that indicates the rest's lenght. For example: `quarter`
     - Example
         ```python
+        from Scopul import Scopul
+        
         scop = Scopul("test.mid")
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section

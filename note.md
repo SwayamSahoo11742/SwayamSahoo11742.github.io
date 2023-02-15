@@ -7,6 +7,8 @@ The Note class can be accesed within a [Part](part.md) object of a [Scopul](scop
 Here's an example of how you could get a Note object:
 
 ```python
+from Scopul import Scopul
+
 scop = Scopul("test.mid")
 
 # Get parts
@@ -29,6 +31,8 @@ note = random_part[0] # Getting the first object in the sequence, which is a not
         - A string in "letter-name octave" format. For example: `F3`
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section
@@ -47,6 +51,8 @@ note = random_part[0] # Getting the first object in the sequence, which is a not
         - an int, representing the measure number. For example: `5`
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section
@@ -67,6 +73,8 @@ note = random_part[0] # Getting the first object in the sequence, which is a not
             - Most of the MIDIs do not have velocity specified
     - Example
         ```python
+        from Scopul import Scopul
+
         scop = Scopul("test.mid")
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section
@@ -85,6 +93,8 @@ note = random_part[0] # Getting the first object in the sequence, which is a not
         - A string that indicates the note's lenght. For example: `quarter`
     - Example
         ```python
+        from Scopul import Scopul
+        
         scop = Scopul("test.mid")
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section

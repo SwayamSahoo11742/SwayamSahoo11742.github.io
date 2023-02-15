@@ -7,6 +7,8 @@ Tempo is a class to fetch the tempo and tempo changes in a [Scopul]("scopul.md")
 Here is an example of how to acess the Tempo class for a Scopul object:
 
 ```python
+from Scopul import Scopul
+
 scop = Scopul("test.mid")
 tempo = scop.tempo
 print(tempo)
@@ -27,7 +29,9 @@ print(tempo)
             [{"tempo":36, "measure": 1},{"tempo":5, "measure": 56}]
             ```
     - Example
-        ```python
+        ```
+        from Scopul import Scopul
+
         scopul_object = Scopul("test.mid")
         tempo = scopul_objecy.tempo
         print(tempo.bpm_list)
@@ -48,6 +52,8 @@ print(tempo)
             ```
     - Example
         ```python
+        from Scopul import Scopul
+        
         scopul_object = Scopul("test.mid")
         tempo = scopul_objecy.tempo
         print(tempo.bpm_list)

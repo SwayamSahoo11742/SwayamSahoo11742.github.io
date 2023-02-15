@@ -3,12 +3,20 @@
 ## Overview
 The Scopul class is a class for creating, analyzing, and generating MIDI files. It can read MIDI files, extract information such as tempo, time signature, and parts, and generate pdf and musicxml files. The class provides properties and methods to perform these tasks, making it a versatile tool for working with music files.
 
+To instanciate a Scopul class, do the following:
+```python
+from Scopul import Scopul
+
+scop = Scopul("test.mid")
+```
 
 ## Class Properties
 - `tempo`
   - The tempo property returns a [Tempo](tempo.md) object.
   - Example:
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     tempo_object = scopul_object.tempo
     print(tempo_object)
@@ -22,6 +30,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
   - The time_sig property returns a [TimeSignature](timesig.md) object.
   - Example:
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     time_sig_object = scopul_object.time_sig
     print(time_sig_object)
@@ -35,6 +45,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
   - The parts property returns a list of [Part](part.md) objects.
   - Example:
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     part_list = scopul_object.parts
     print(part_list)
@@ -49,6 +61,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
   - The audio property returns the audio midi file.
   - Example:
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     midi_file = scopul_object.audio
     print(midi_file)
@@ -59,6 +73,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
   - The audio property can also be set, which will reconstruct the object to change accordingly to a new midi.
   - Example:
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     scopul_object.audio = "test2.mid"
     print(scopul_object.audio)
@@ -73,6 +89,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 
   - Example
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     print(scopul_object.midi)
 
@@ -87,6 +105,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
   - The `get_audio_lenght()` method returns the length of the audio in seconds.
   - Example:
     ```python
+    from Scopul import Scopul
+
     scopul_object = Scopul("test.mid")
     audio_length = scopul_object.get_audio_lenght()
     print(audio_lenght)
@@ -99,6 +119,7 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 
 - `generate_pdf(output, fp="", overwrite=False )`
   - The `generate_pdf()` method generates a pdf of the midi. It creates a pdf by turning it into musicxml then to pdf.
+  - ****Note** - To use this, you muse have MuseScore configured, to configure MuseScore, go the configuration part of [Installation and Configuration](install.md)
   - Args:
     - `output`: a str that represents the name of the file
     - `fp`:` a str that represents the file path as to where to save the pdf. Default is '', which will save to the current working directory
@@ -110,6 +131,11 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
     - **InvalidFileFormatError**: if given a non .pdf file for output
   - Example:
     ```python
+    from Scopul import Scopul, config_musescore
+
+    # Config Path
+    config_musescore("path/to/MuseScore.exe")
+
     scopul_object = Scopul("test.mid")
     scopul_object.generate_pdf("example.pdf", fp="path/to/pdf/", overwrite=True)
     ```
@@ -117,6 +143,7 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
   <br>
 - `generate_musicxml(output, fp="", overwrite=False)`
   - The `generate_musicxml` method generates a musicxml of the midi file.
+  - ****Note** - To use this, you muse have MuseScore configured, to configure MuseScore, go the configuration part of [Installation and Configuration](install.md)
   - Parameters
     - `output`: a string that represents the name of the file
     - `fp`: a string that represents the file path as to where to save the musicxml. Default is '', which will save to the current working directory
@@ -128,6 +155,11 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
     - **InvalidFileFormatError**: if given a non .xml file for output
   - Example:
     ```python
+    from Scopul import Scopul, config_musescore
+
+    # Config Path
+    config_musescore("path/to/bin")
+
     scopul_object = Scopul("test.mid")
     scopul_object.generate_musicxml("example.pdf", fp="path/to/xml/", overwrite=True)
     ```
@@ -152,6 +184,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 
   - Example
     ```python
+    from Scopul import Scopul
+
     # int input
     print(Scopul.midi_tempo2bpm(10000))
 
@@ -188,6 +222,8 @@ The Scopul class is a class for creating, analyzing, and generating MIDI files. 
 
   - Example
     ```python
+    from Scopul import Scopul
+    
     # int input
     print(Scopul.bpm2midi_tempo(108))
 
