@@ -2,7 +2,7 @@
 
 ## Installation
 
-```cmd
+```python
 $ pip install scopul
 ```
 <br>
