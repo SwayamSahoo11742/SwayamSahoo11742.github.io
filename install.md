@@ -2,14 +2,13 @@
 
 ## Installation
 
-```python
+```
 $ pip install scopul
 ```
-<br>
 
 ## Configuring MuseScore
 
-To use the functions `generate_pdf()` and `generate_musicxml()`, you must download and specify the [MuseScore](https://musescore.org/en/download) executable file.
+To use the functions `generate_pdf()` and `generate_musicxml()`, you must download and specify the [MuseScore](https://musescore.org/en/download/) executable file path.
 
 To configure MuseScore, run the `config_musescore()`
 
