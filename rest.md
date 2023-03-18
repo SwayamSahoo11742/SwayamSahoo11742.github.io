@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Rest class can be accesed within a [Part](part.md) object of a [Scopul](scopul.md) object. It has 2 properties: `measure`, `lenght`
+The Rest class can be accesed within a [Part](part.md) object of a [Scopul](scopul.md) object. It has 2 properties: `measure`, `length`
 
 Here's an example of how you could get a Rest object:
 
@@ -22,7 +22,43 @@ random_part = parts[0].sequence
 
 rest = random_part[1] # Getting the second object in the sequence, which is a rest
 ```
+<br>
 
+## Creating a Note object
+#### `Rest(self, music21=None, length=None, measure=None)`
+
+
+You can create your own note class, which you may use to append to the existing MIDI or use for other purposes
+
+##### Args
+- `m21` : a music21 object
+- `length`: The lenght of the rest in quarter length. 
+    - Ex. `1.5`, which is a dotted-quarter note
+- `measure`: The measure number of the note
+
+There are two ways to create a Note class: 
+- By passing in a music21 object, 
+- Or by specifying the attributes your self
+
+To make it your self:
+
+```python
+from Scopul import Rest
+
+my_note = Rest(length=1.5, measure=5)
+```
+<br>
+
+To use a music21 object to create a Note object:
+```python
+from Scopul import Note
+from music21 import note
+
+music21_rest = note.Rest(quarterLenght=4)
+scopul_note = Note(m21=music21_rest) # Automatically sets up all the attributes
+```
+
+<br>
 ## Properties
 
 
@@ -49,10 +85,10 @@ rest = random_part[1] # Getting the second object in the sequence, which is a re
 
 
 
-- `lenght`
-    - Gets the name of the rest in "letter-name octave" format
+- `length`
+    - Gets the length of the rest in quarter lenght 
     - Returns
-        - A string that indicates the rest's lenght. For example: `quarter`
+        - A int that indicates the rest's quarter length. For example: 1
     - Example
         ```python
         from Scopul import Scopul
@@ -60,12 +96,29 @@ rest = random_part[1] # Getting the second object in the sequence, which is a re
         scop = Scopul("test.mid")
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section
-        random_note = scop.parts[0].sequence[1] # Sample index
-        print(random_note.lenght)
+        random_rest = scop.parts[0].sequence[1] # Sample index
+        print(random_rest.length)
 
         # Sample output
-        >>> "16th"
+        >>> 0.25
         ```
+
+<br>
+
+- `music21`
+  - the music21 property returns the [Music21 Object](https://web.mit.edu/music21/doc/usersGuide/usersGuide_02_notes.html) for the Rest object
+
+  - Example
+    ```python
+    from music21 import note
+    from Scopul import Scopul, Rest
+
+    rest = Rest(length=1.5)
+    print(rest.music21)
+
+    # Sample output
+    >>> <music21.note.Rest>
+    ```
 
 
 

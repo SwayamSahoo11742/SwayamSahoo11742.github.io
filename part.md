@@ -114,6 +114,47 @@ print(flue_part)
 <br>
 
 ## Methods
+- `search_rhythm(self, rhythm: list)`
+    - Gets all occurences of a specified rhythm in the Part
+    - Args
+        - `rhythm`: a list where each element represents a rhythm
+            - the elements in the list must be the note's quarter length (For example, 1 would be quarter note, 0.5 will be eight note)
+                - For example:
+                    `[1, 1, 0.5, 0.5, 2]`
+                    This  will be a rhythm of quarter, quarter, eighth, eighth, half
+
+            - Can specify note type using the following format:
+                - `[[type, quarterlength], [type, quarterlength] ...]`
+
+                - For Example:
+                    `[["c", 0.75], ["r", 0.25]]`
+                    This will search for rhythms with dotted-eight chords followed by 16th rest
+
+                - Types:
+                    `r`: Rest
+                    `c`: Chord
+                    `n`: Note
+    - Returns
+        - a list of lists, with each list containing the Scopul musical element objects that satisfy the rhythm
+    
+    - For example:
+        ```python
+        from Scopul import Scopul
+
+        scopul_object = Scopul("test.mid")
+        part = scopul_object.parts[1] # Sample part
+
+        # Simple search
+        part.search_rhythm([1, 2, 0.5, 4]) # This will search for quarter, half, eighth whole
+
+        # Complex search
+        part.search_rhythm([
+            ["c", 2]
+            ["r", 0.5] # This will search for a half chord, eighth rest, eighth chord, eighth note
+            ["c", 0.5]
+            ["n", 0.5]
+            ])
+
 
 - `get_measure(m : int | list)`
     - Fetches a sequence of Note, Rest and Chord objects
@@ -468,7 +509,7 @@ print(flue_part)
 
 <br>
 
-- `get_note_count(seq : list)`
+- `get_chord_count(seq : list)`
     - Retrieves how many chords there are in a sequence
     - Args
         - seq: A list consisting of Scopul musical element types (Rest, Note and Chord objects)
@@ -520,3 +561,4 @@ print(flue_part)
         # Sample output
         >>> 2
         ```
+

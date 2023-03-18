@@ -10,16 +10,40 @@ Here's an example of how to fetch a TimeSignature object of a Scopul object:
 from Scopul import Scopul
 
 scop = Scopul("test.mid")
-time_signature = scop.time_sig
+time_signature = scop.time_sig_list[0]
 print(time_signature)
 
 # Sample output
 >>> <TimeSignature.TimeSignature object at 0x0000029C5E1A5610>
 ```
 <br>
+
+## Creating a Note object
+#### `TimeSignature(self, value: str, measure=None)`
+
+
+You can create your own note class, which you may use to append to the existing MIDI or use for other purposes
+
+##### Args
+- `value` : the time signature as a string 
+    - Ex. `"6/8"`, which is middle C
+- `measure`: The measure number of the Time Signature
+
+
+
+To make create a Tempo class:
+
+```python
+from Scopul import TimeSignature
+
+my_note = TimeSIgnture(value="4/4", measure=28)
+```
+<br>
+
 ## Properties
+
 - `ratio`
-    - Fetches the initial time signature as you would normally see it on sheet music
+    - Fetches the time signature as you would normally see it on sheet music
     - Returns
         - A string, Ex: `3/4`
     
@@ -28,7 +52,7 @@ print(time_signature)
         from Scopul import Scopul
 
         scop = Scopul("test.mid")
-        time_signature = scop.time_sig
+        time_signature = scop.time_sig_list[0]
         print(time_signature.ratio)
 
         # Sample output
@@ -37,7 +61,7 @@ print(time_signature)
 <br>
 
 - `denominator`
-    - Fetches the denominator of the initial tempo
+    - Fetches the denominator of the time signature
     - Returns
         - An int, EX: `4`
     
@@ -46,7 +70,7 @@ print(time_signature)
         from Scopul import Scopul
 
         scop = Scopul("test.mid")
-        time_signature = scop.time_sig
+        time_signature = scop.time_sig_list[0]
         print(time_signature.denominator)
 
         # Sample output
@@ -55,7 +79,7 @@ print(time_signature)
 <br>
 
 - `numerator`
-    - Fetches the numerator of the initial tempo
+    - Fetches the numerator of the time signature
     - Returns
         - An int, EX: `4`
     
@@ -64,7 +88,7 @@ print(time_signature)
         from Scopul import Scopul
 
         scop = Scopul("test.mid")
-        time_signature = scop.time_sig
+        time_signature = scop.time_sig_list[0]
         print(time_signature.numerator)
 
         # Sample output
@@ -72,46 +96,40 @@ print(time_signature)
         ```
 <br>
 
-- `count`
-    - Fetches the number of times time signature changes have occured
+- `measure`
+    - Gets the measure in which this time signature appeared in
     - Returns
-        - An int, EX: `12`
+        - an int, representing the measure number. For example: `5`
     - Example
         ```python
         from Scopul import Scopul
 
         scop = Scopul("test.mid")
-        time_signature = scop.time_sig
-        print(time_signature.count)
+
+        # Getting list of tempos
+        signature_list = scop.time_sig_list 
+        rendom_signature = tempo_list[0] # Sample index
+
+        print(random_signature.measure)
 
         # Sample output
-        >>> 12
+        >>> 1
         ```
 <br>
 
-## Methods
- - `list`
-    - Fetches a list of all the time signature changes in a piece, with measure numbers
-    - Returns
-        - A dict, with `measure` and `ratio` keys. For example;
-            ```python
-            [{'ratio': '6/8', 'measure': 1}, {'ratio': '6/8', 'measure': 1}]
-            ```
 
-    - Example:
-        ```python
-        from Scopul import Scopul
-        
-        scop = Scopul("test.mid")
-        time_signature = scop.time_sig
-        print(time_signature.list())
+- `music21`
+  - the music21 property returns the [Music21 Object](https://web.mit.edu/music21/doc/usersGuide/usersGuide_14_timeSignatures.htmll) for the Time Signature object
 
-        # Sample output
-        >>> [{'ratio': '4/4', 'measure': 1}, {'ratio': '2/4', 'measure': 44}]
-        ```
+  - Example
+    ```python
+    from music21 import note
+    from Scopul import Scopul, TimeSignature
 
+    signature = TimeSignature(value="3/4")
+    print(signature.music21)
 
-
-
-
+    # Sample output
+    >>> <music21.meter.TimeSignature 3/4>00>
+    ```
 
