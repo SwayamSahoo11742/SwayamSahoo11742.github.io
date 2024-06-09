@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            width: 6%;
+            background-color: #FFB09F;
+        }
+
+        .green-bg {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <a href="https://swayamsahoo11742.github.io/">SwayamSahoo11742.github.io</a>
+    </h1>
+
+    <h2>TEXT:</h2>
+    <div>
+        030 061 030 030 030 042 02d 040 063 042 030 030 031 030 030 061 030 042 02d 02d 02d 02d 040 063 042 030 031 042 030 061 030 030 030 042 02d 040 063 042 030 031 061 030 030 030 030 030 042 02d 040 063 042 02d 02d 031 042 030 030 061 030 030 042 02d 02d 02d 02d 02d 040 063 042 031 02d 061 030 030 042 02d 040 063 042 02d 02d 02d 02d 02d 02d 02d 02d 031 061 030 030 042 02d 02d 02d 040 063 042 031 02d 02d 02d 02d 02d 031 030 030 030 030 030 030 030 030 030 030 030 030 030 031 02d 02d 02d 02d 02d 02d 02d 02d 02d 02d 02d 031 031 030 061 030 030 030 042 02d 040 063 042 031 061 030 042 02d 02d 02d 02d 02d 040 063 042 02d 02d 031 02d 02d 02d 031 030 031 02d 02d 031 02d 02d 02d 02d 02d 02d 02d 02d 031 030 030 030 030 030 030 030 030 030 030 030 030 031 030 030 030 061 030 042 02d 02d 02d 02d 040 063 042 030 031 030 031 030 030 030 030 030 030 030 030 030 030 030 030 030 030 030 031 061 030 030 030 042 02d 040 063 042 030 031 030 030 031 02d 02d 02d 061 030 042 02d 02d 02d 040 063 042 02d 02d 031 02d 02d 031 02d 02d 02d 02d 02d 02d 02d 02d 031 030 030 030 030 030 030 030 030 030 030 030 030 031 02d 061 030 030 030 042 02d 02d 040 063 042 02d 02d 02d 031 02d 061 030 030 030 042 02d 040 063 042 02d 02d 02d 031 030 030 030 030 030 030 030 030 030 030 030 031 02d 031 02d 061 030 030 030 042 02d 02d 040 063 042 02d 02d 031 02d 061 030 030 030 042 02d 040 063 042 02d 02d 031 02d 02d 02d 031 02d 02d 02d 02d 061 030 042 02d 02d 02d 040 063 042 02d 031 02d 02d 031 061 030 030 030 042 02d 040 063 042 030 030 030 030 031 02d 02d 02d 02d 02d 02d 02d 02d 02d 02d 031
+    </div>
+    <h4>What Does it mean???? (Format: SCTF{...})</h4>
+    <h1><u><i>HINT 1</i></u></h1>
+    <img src="alpha.png" alt="Image Description">
+    <div class="input-container">
+        <input type="text" placeholder="letter 1" maxlength="1" id="input1">
+        <input type="text" placeholder="letter 2" maxlength="1" id="input2">
+        <input type="text" placeholder="letter 3" maxlength="1" id="input3">
+        <input type="text" placeholder="letter 4" maxlength="1" id="input4">
+    </div>
+
+    <div>LETTER 1: square root of 1 [SQRT(1)]</div>
+    <div>LETTER 2: 1024 &times; 1020 &times; 1016 &times; 1012 &times; ... &times; -4</div>
+    <div>LETTER 3: | |-18| &times; |1| &times; -18 | &times; |-1(1/18)| </div>
+    <div>LETTER 4: (1 - 19)(4 + 19) + 19(4 - 1 + 19) </div>
+
+    <h3 id="hint-found-1" style="display: none;">HINT FOUND!<span style="color: green;">"</span><span style="color: Red;">Base</span><span style="color: green;">"</span></h3>
+
+    <h1><u><i>HINT 2:</i></u></h1>
+    <h3 class="hintCirc" style="display: none;">HINT FOUND! <span style="color: green;">"</span><span style="color: Red;">15</span><span style="color: green;">"</span></h3>
+    <div>&#9711;O has a radius of 12.5, and is circuminscribed about &#9651;ABC, what is the lenght of AB? </div>
+    <img src="circ.png">
+    <div>ANSWER:<input type="number" placeholder="answer here" id="inputCirc"></div>
+    
+    <script>
+        const input1 = document.getElementById("input1");
+        const input2 = document.getElementById("input2");
+        const input3 = document.getElementById("input3");
+        const input4 = document.getElementById("input4");
+        const hintFound = document.getElementById("hint-found-1");
+        const inputCirc = document.getElementById("inputCirc");
+        const hintCirc = document.querySelector(".hintCirc");
+    
+        inputCirc.addEventListener("input", () => {
+            if (inputCirc.value === "15") {
+                inputCirc.classList.add("green-bg");
+                hintCirc.style.display = "block"; // Display the "YES" hint
+            } else {
+                inputCirc.classList.remove("green-bg");
+                hintCirc.style.display = "none"; // Hide the "YES" hint
+            }
+        });
+    
+        function checkInputs() {
+            return (
+                input1.classList.contains("green-bg") &&
+                input2.classList.contains("green-bg") &&
+                input3.classList.contains("green-bg") &&
+                input4.classList.contains("green-bg")
+            );
+        }
+    
+        function updateHintVisibility() {
+            if (checkInputs()) {
+                hintFound.style.display = "block";
+            } else {
+                hintFound.style.display = "none";
+            }
+        }
+    
+        input1.addEventListener("input", () => {
+            if (input1.value.toUpperCase() === "B") {
+                input1.classList.add("green-bg");
+            } else {
+                input1.classList.remove("green-bg");
+            }
+            updateHintVisibility();
+        });
+    
+        input2.addEventListener("input", () => {
+            if (input2.value.toUpperCase() === "A") {
+                input2.classList.add("green-bg");
+            } else {
+                input2.classList.remove("green-bg");
+            }
+            updateHintVisibility();
+        });
+    
+        input3.addEventListener("input", () => {
+            if (input3.value.toUpperCase() === "S") {
+                input3.classList.add("green-bg");
+            } else {
+                input3.classList.remove("green-bg");
+            }
+            updateHintVisibility();
+        });
+    
+        input4.addEventListener("input", () => {
+            if (input4.value.toUpperCase() === "E") {
+                input4.classList.add("green-bg");
+            } else {
+                input4.classList.remove("green-bg");
+            }
+            updateHintVisibility();
+        });
+    </script>
+    
+</body>
+</html>

@@ -22,6 +22,35 @@ print(flue_part)
 >>> <Sequence.Part object at 0x000001C8065EBCD0>
 ```
 <br>
+
+## Creating a Part object
+#### `Part(self, part: Iterable | music21.stream.Part)`
+
+
+You can create your own note class, which you may use to append to the existing MIDI or use for other purposes
+
+##### Args
+- `part`: Can be an iterbale consisting of Scopul musical elements OR a music21 part object
+
+To make it your self:
+
+```python
+from Scopul import Note, Chord, Rest, Part
+
+N1 = Note(name="C#4", length=1.5)
+N2 = Note(name="E4", length=1.5)
+N3 = Note(name="G4", length=1.5)
+R1 = Rest(length=3)
+C1 = Chord(notes=[N1, N2, N3], measure=5)
+
+# Create a part object with values initialized
+my_part = Part([N1, C1, R1])
+
+# Empty part
+my_empty_part = Part([])
+```
+<br>
+
 ## Properties
 
 - `name`
@@ -114,6 +143,47 @@ print(flue_part)
 <br>
 
 ## Methods
+- `search_rhythm(self, rhythm: list)`
+    - Gets all occurences of a specified rhythm in the Part
+    - Args
+        - `rhythm`: a list where each element represents a rhythm
+            - the elements in the list must be the note's quarter length (For example, 1 would be quarter note, 0.5 will be eight note)
+                - For example:
+                    `[1, 1, 0.5, 0.5, 2]`
+                    This  will be a rhythm of quarter, quarter, eighth, eighth, half
+
+            - Can specify note type using the following format:
+                - `[[type, quarterlength], [type, quarterlength] ...]`
+
+                - For Example:
+                    `[["c", 0.75], ["r", 0.25]]`
+                    This will search for rhythms with dotted-eight chords followed by 16th rest
+
+                - Types:
+                    `r`: Rest
+                    `c`: Chord
+                    `n`: Note
+    - Returns
+        - a list of lists, with each list containing the Scopul musical element objects that satisfy the rhythm
+    
+    - For example:
+        ```python
+        from Scopul import Scopul
+
+        scopul_object = Scopul("test.mid")
+        part = scopul_object.parts[1] # Sample part
+
+        # Simple search
+        part.search_rhythm([1, 2, 0.5, 4]) # This will search for quarter, half, eighth whole
+
+        # Complex search
+        part.search_rhythm([
+            ["c", 2]
+            ["r", 0.5] # This will search for a half chord, eighth rest, eighth chord, eighth note
+            ["c", 0.5]
+            ["n", 0.5]
+            ])
+
 
 - `get_measure(m : int | list)`
     - Fetches a sequence of Note, Rest and Chord objects
@@ -122,7 +192,7 @@ print(flue_part)
     - Returns
         - A list consisting of Scopul musical elements (Rest, Note and Chord objects)
     - Raises:
-        - **ValueError**: if inputted negative number, or a list with not lenght of 2
+        - **ValueError**: if inputted negative number, or a list with not length of 2
         - **TypeError**: if input is not a list of int or a singular int
 
     - Example
@@ -468,7 +538,7 @@ print(flue_part)
 
 <br>
 
-- `get_note_count(seq : list)`
+- `get_chord_count(seq : list)`
     - Retrieves how many chords there are in a sequence
     - Args
         - seq: A list consisting of Scopul musical element types (Rest, Note and Chord objects)
@@ -520,3 +590,45 @@ print(flue_part)
         # Sample output
         >>> 2
         ```
+    
+<br>
+
+- `insert(element: Rest | Chord | Note, measure_number: int = None, position: int = 0)`
+    - Args:
+        - element: a Note, Rest or Chord object
+        - measure_number: an int
+        - position: an int, the offset of the note within the measure
+    - Returns:
+        - None
+    
+    - Example:
+        ```python
+        from Scopul imprt Scopul, Rest, Note, Chord
+        scop = Scopul("test.mid")
+        part = scop.parts[0]
+        note = Note(name="C3", length=0.5)
+        
+        part.insert(note)
+
+<br>
+
+- `delete(self, index: int = 0)`
+    - Args:
+        - index: am int, the idex of the sequence property you want to erase
+    
+    - Returns:
+        - None
+    
+    - Example:
+        ```python
+        from Scopul import Part, Note
+
+        N1 = Note(name="C4#", length=1.5)
+        N2 = Note(name="E4", length=1.5)
+        N3 = Note(name="G4", length=1.5)
+
+        my_part = Part([N1, N2, N3])
+        
+        my_part.delete(2)
+
+        # my_part = [C#4, E4]

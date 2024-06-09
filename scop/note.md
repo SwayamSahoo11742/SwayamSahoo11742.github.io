@@ -2,9 +2,9 @@
 
 ## Overview
 
-The Note class can be accesed within a [Part](part.md) object of a [Scopul](scopul.md) object. It has 4 properties: `name`, `measure`, `velocity`, `lenght`
+The Note class can be accesed within a [Part](part.md) object of a [Scopul](scopul.md) object. It has 4 properties: `name`, `measure`, `velocity`, `length`, `music21`
 
-Here's an example of how you could get a Note object:
+Here's an example of how you could get a Note object with the Scopul class:
 
 ```python
 from Scopul import Scopul
@@ -22,7 +22,44 @@ random_part = parts[0].sequence
 
 note = random_part[0] # Getting the first object in the sequence, which is a note
 ```
+<br>
+## Creating a Note object
+#### `Note(self, m21=None, name=None, length=None, velocity=None, measure=None)`
 
+
+You can create your own note class, which you may use to append to the existing MIDI or use for other purposes
+
+##### Args
+- `m21` : a music21 object
+- `name` : note's name in "letter octave" format. 
+    - Ex. `"C4"`, which is middle C
+- `length`: The length of the note in quarter length. 
+    - Ex. `1.5`, which is a dotted-quarter note
+- `velocity`: The velocity of the note as an int
+- `measure`: The measure number of the note
+
+There are two ways to create a Note class: 
+- By passing in a music21 object, 
+- Or by specifying the attributes your self
+
+To make it your self:
+
+```python
+from Scopul import Note
+
+my_note = Note(name="C4", length=1.5, velocity=2, measure=5)
+```
+<br>
+
+To use a music21 object to create a Note object:
+```python
+from Scopul import Note
+from music21 import note
+
+music21_note = note.Note("C4", quarterlength=4)
+scopul_note = Note(m21=music21_note) # Automatically sets up all the attributes
+```
+<br>
 ## Properties
 
 - `name`
@@ -87,10 +124,10 @@ note = random_part[0] # Getting the first object in the sequence, which is a not
 
 <br>
 
-- `lenght`
-    - Gets the lenght of the note in your standard english form
+- `length`
+    - Gets the length of the note in quarter length
     - Returns
-        - A string that indicates the note's lenght. For example: `quarter`
+        - An int or float that indicates the note's quarter length. For example: 0.5
     - Example
         ```python
         from Scopul import Scopul
@@ -99,11 +136,26 @@ note = random_part[0] # Getting the first object in the sequence, which is a not
 
         # Getting a note by going into a part's sequence, if this is confusing, go to Part class section
         random_note = scop.parts[0].sequence[0] # Sample index
-        print(random_note.lenght)
+        print(random_note.length)
 
         # Sample output
-        >>> "eighth"
+        >>> 0.5
         ```
+<br>
 
+- `music21`
+  - the music21 property returns the [Music21 Object](https://web.mit.edu/music21/doc/usersGuide/usersGuide_02_notes.html) for the Note object
+
+  - Example
+    ```python
+    from music21 import note
+    from Scopul import Scopul, Note
+
+    note = Note(name="C4", length=1.5)
+    print(note.music21)
+
+    # Sample output
+    >>> <music21.note.Note C>
+    ```
 
 
