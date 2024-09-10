@@ -1,2 +1,2 @@
 - [Scopul](scop/scindex.md)
-- [AsteroidTracker](https://66d7cc826e9fc310bc225645--lambent-daifuku-67ec48.netlify.app/)
+- [AsteroidTracker](https://66df91cf21bc32c2c5227d6b--lambent-daifuku-67ec48.netlify.app/)
